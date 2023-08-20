@@ -14,5 +14,5 @@ CONSTRAINTS = {
     7: [ (4, BASE  ) ],
 }
 
-for id, solution in enumerate(bruteforce(8, CONSTRAINTS)):
+for id, solution in enumerate(bruteforce(9, CONSTRAINTS)):
     print(id, ":", humanize(solution))
