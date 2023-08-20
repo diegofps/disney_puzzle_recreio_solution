@@ -37,6 +37,8 @@ KEY_NAMES = {
 def humanize(key):
     if isinstance(key, list):
         return " ".join([humanize(x) for x in key])
+    elif key is None:
+        return "None"
     else:
         return KEY_NAMES[key[0]] + KEY_NAMES[key[1]] + KEY_NAMES[key[2]]
 
@@ -68,8 +70,7 @@ def _bruteforce(state, keys, used, i, constraints, solutions):
         used[k] = True
 
         for rotate in range(3):
-            key = shift_rotate(key, rotate)
-            state[i] = key
+            state[i] = shift_rotate(key, rotate)
 
             if check_constraints(state, i, constraints):
                 _bruteforce(state, keys, used, i+1, constraints, solutions)
@@ -81,5 +82,10 @@ def bruteforce(max_keys, constraints):
     state = [None for _ in range(max_keys)]
     used  = [False for _ in KEYS]
     solutions = []
+
+    for i in range(max_keys):
+        if not i in constraints:
+            constraints[i] = []
+    
     _bruteforce(state, KEYS, used, 0, constraints, solutions)
     return solutions
