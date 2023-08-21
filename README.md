@@ -17,6 +17,8 @@ To make it easier for younger kids, I built a set of new patterns that are compa
 
 ![Extra patterns](imgs/Desafios.png)
 
+If you want to print it, a PDF file is available [here](https://github.com/diegofps/disney_puzzle_recreio_solution/blob/main/docs/Desafios.pdf).
+
 # Executing the Solvers
 
 To execute a solver, access the solvers folder and execute the file with its pattern name. This project has no dependencies, except for Python itself. For instance, to solve the full triangle, we would do:
